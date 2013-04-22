@@ -12,4 +12,4 @@ Once the program's UI stabilizes, a new C library will be written to replace the
 
 Until Lumetta's program is replaced it will be used to do the heavy lifting, including assembling and simulating the LC-3 source code and .obj files.
 
-That's it so far!  If you have questions, I am available via email at cbh2000@gmail.com.  I'm a nice person!
+That's it so far!  If you have questions, I am available via email at cbh2000@gmail.com.
