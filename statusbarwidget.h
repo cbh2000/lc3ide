@@ -1,9 +1,9 @@
 #ifndef STATUSBARWIDGET_H
 #define STATUSBARWIDGET_H
 
-#include <QWidget>
-#include <QGraphicsDropShadowEffect>
 #include <QStatusBar>
+
+class QGraphicsDropShadowEffect;
 
 class StatusBarWidget : public QStatusBar
 {
@@ -14,6 +14,9 @@ public:
 signals:
 
 public slots:
+
+private:
+    QGraphicsDropShadowEffect *dropShadow;
     
 };
 

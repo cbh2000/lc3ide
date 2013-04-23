@@ -2,9 +2,7 @@
 #define SYNTAXHIGHLIGHTER_H
 
 #include <QSyntaxHighlighter>
-#include <QDebug>
-#include <QTextDocument>
-#include <QGuiApplication>
+class QTextDocument;
 
 class SyntaxHighlighter : public QSyntaxHighlighter
 {

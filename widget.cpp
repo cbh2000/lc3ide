@@ -1,4 +1,15 @@
 #include "widget.h"
+#include <QVBoxLayout>
+#include <QAction>
+#include <QTextEdit>
+#include <QLabel>
+#include <QTableWidget>
+#include <QTableWidgetItem>
+#include <QHeaderView>
+#include <QProcess>
+#include <QDir>
+
+#include <QDebug>
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent)
@@ -38,7 +49,7 @@ Widget::Widget(QWidget *parent) :
                             this, SLOT(assembleButtonClicked()));
 
     // Text edit
-    sourceEditor = new QTextEdit(this);
+    sourceEditor = new QTextEdit(this); // FIXME: This line takes FOREVER to finish!!!
     sourceEditor->lower(); // Show toolbar's shadow
     sourceEditor->setFontFamily("Monospace");
     sourceEditor->setAutoFillBackground(true); // Required to change color
@@ -104,8 +115,9 @@ void Widget::saveSource(const QString &fileName) {
     tempFile.close();
 }
 
-const QString& Widget::assemble(const QString &fileName) {
+const QString Widget::assemble(const QString &fileName) {
     assemblerProcess = new QProcess(this);
+    // FIXME: This would be very inconvenient for somebody else to test drive:
     QString executable("/home/bryan/Downloads/lc3tools/lc3as");
     qDebug() << QFile(executable).exists();
     QStringList arguments(fileName);
@@ -183,7 +195,7 @@ void Widget::switchModeButtonClicked() {
 }
 
 void Widget::assembleButtonClicked() {
-    QString fileName("/home/bryan/.lc3sim.asm");
+    QString fileName(QDir::homePath() + "/.lc3ide.asm");
     saveSource(fileName);
     assemble(fileName);
     populateLabels(fileName);

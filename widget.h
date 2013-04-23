@@ -5,15 +5,17 @@
 #include "toolbarwidget.h"
 #include "statusbarwidget.h"
 #include "bigbutton.h"
-#include <QVBoxLayout>
-#include <QAction>
-#include <QTextEdit>
 #include "syntaxhighlighter.h"
-#include <QLabel>
-#include <QTableWidget>
-#include <QTableWidgetItem>
-#include <QHeaderView>
-#include <QProcess>
+
+class QVBoxLayout;
+class QAction;
+class QTextEdit;
+class QLabel;
+class QTableWidget;
+class QTableWidgetItem;
+class QHeaderView;
+class QProcess;
+class QDir;
 
 #define BIT_LENGTH (16)
 #define MAX_VALUE_IN_BIT_LENGTH (2 << BIT_LENGTH)
@@ -50,7 +52,7 @@ private:
     void addToTable(const QString &text, int row, int column);
 
     void saveSource(const QString &fileName);
-    const QString &assemble(const QString &fileName);
+    const QString assemble(const QString &fileName);
     void populateLabels(const QString &fileName);
     QMap<int, QString> labels;
 };

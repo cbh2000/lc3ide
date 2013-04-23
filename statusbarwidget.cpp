@@ -1,4 +1,5 @@
 #include "statusbarwidget.h"
+#include <QGraphicsDropShadowEffect>
 
 StatusBarWidget::StatusBarWidget(QWidget *parent) :
     QStatusBar(parent)

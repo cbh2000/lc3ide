@@ -1,4 +1,8 @@
 #include "syntaxhighlighter.h"
+#include <QTextDocument>
+#include <QGuiApplication>
+
+#include <QDebug>
 
 SyntaxHighlighter::SyntaxHighlighter(QTextDocument *parent) :
     QSyntaxHighlighter(parent)

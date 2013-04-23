@@ -1,9 +1,10 @@
 #ifndef TOOLBARWIDGET_H
 #define TOOLBARWIDGET_H
 
-#include <QWidget>
-#include <QGraphicsDropShadowEffect>
 #include <QToolBar>
+
+class QToolBar;
+class QGraphicsDropShadowEffect;
 
 class ToolBarWidget : public QToolBar
 {

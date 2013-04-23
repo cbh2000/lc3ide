@@ -1,8 +1,6 @@
 #ifndef BIGBUTTON_H
 #define BIGBUTTON_H
 
-#include <QPainter>
-#include <QPaintEvent>
 #include <QPushButton>
 
 class BigButton : public QPushButton

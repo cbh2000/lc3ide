@@ -1,4 +1,5 @@
 #include "toolbarwidget.h"
+#include <QGraphicsDropShadowEffect>
 
 ToolBarWidget::ToolBarWidget(QWidget *parent) :
     QToolBar(parent)
