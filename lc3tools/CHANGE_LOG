@@ -1,3 +1,6 @@
+23 April 2013 (version 0.12a; cbh2000@gmail.com)
+	fixed inability to use labels with a preceding semicolon
+
 1 October 2008 (version 0.12)
 	fixed lc3convert issues with unterminated (Windows-style) last 
 		line in input file (both binary and hex); added multiple 
