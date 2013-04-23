@@ -8,6 +8,8 @@
 #include <QHeaderView>
 #include <QProcess>
 #include <QDir>
+#include <QString>
+#include <QMessageBox>
 
 #include <QDebug>
 
@@ -42,11 +44,26 @@ Widget::Widget(QWidget *parent) :
     switchToEditModeButton->connect(switchToEditModeButton, SIGNAL(clicked()),
                                     this, SLOT(switchModeButtonClicked()));
 
+    // Toolbar: Assemble
     assembleButton = new BigButton(this);
     assembleButton->setText("Compile");
     toolBarLayout->addWidget(assembleButton);
     assembleButton->connect(assembleButton, SIGNAL(clicked()),
                             this, SLOT(assembleButtonClicked()));
+
+    // Toolbar: Set PC
+    setPcButton = new BigButton(this);
+    setPcButton->setText("Set PC");
+    toolBarLayout->addWidget(setPcButton);
+    setPcButton->connect(setPcButton, SIGNAL(clicked()),
+                         this, SLOT(setPcButtonClicked()));
+
+    // Toolbar: Next
+    nextButton = new BigButton(this);
+    nextButton->setText("Next");
+    toolBarLayout->addWidget(nextButton);
+    nextButton->connect(nextButton, SIGNAL(clicked()),
+                        this, SLOT(nextButtonClicked()));
 
     // Text edit
     sourceEditor = new QTextEdit(this); // FIXME: This line takes FOREVER to finish!!!
@@ -58,6 +75,9 @@ Widget::Widget(QWidget *parent) :
                         "HelloWorld\t.STRINGZ \"Hello, world!\"\n\n.END");
     layout->addWidget(sourceEditor, 0);
 
+    programCounterPosition = -1;
+    debuggerProcess = new QProcess(this);
+
     debuggingTableWidget = new QTableWidget(this);
     debuggingTableWidget->setGeometry(sourceEditor->geometry());
     sourceEditor->setHidden(true);
@@ -65,6 +85,8 @@ Widget::Widget(QWidget *parent) :
     debuggingTableWidget->setRowCount(0x301);
     debuggingTableWidget->setColumnCount(2);
     debuggingTableWidget->setAlternatingRowColors(true);
+    debuggingTableWidget->setShowGrid(true);
+//    debuggingTableWidget
     QStringList verticalHeaderLabels;
     for (int i = 0x000; i < 0x0300; ++i) {
         QString address;
@@ -199,4 +221,60 @@ void Widget::assembleButtonClicked() {
     saveSource(fileName);
     assemble(fileName);
     populateLabels(fileName);
+}
+
+QString Widget::hexStringForAddress(int address) {
+    QString hexStringBase("x0000");
+    QString result = QString::number(address, 16); // To hexadecimal
+    return hexStringBase.replace(hexStringBase.length() - result.length(), INT_MAX, result);
+}
+
+void Widget::setProgramCounter(int address) {
+    Q_ASSERT(address >= 0);
+    Q_ASSERT(address < MAX_VALUE_IN_BIT_LENGTH);
+
+    // Restore old header for old PC
+    debuggingTableWidget->setVerticalHeaderItem(programCounterPosition,
+                                                new QTableWidgetItem(hexStringForAddress(programCounterPosition)));
+
+    // Put PC label on current address
+    debuggingTableWidget->setVerticalHeaderItem(address, new QTableWidgetItem("--> PC"));
+
+    programCounterPosition = address;
+}
+
+void Widget::setPcButtonClicked() {
+//    QList<QTableWidgetItem *> selected = debuggingTableWidget->selectedItems();
+//    qDebug() << selected.size() << debuggingTableWidget->currentRow();
+//    if (selected.size() > 1) {
+//        QMessageBox::warning(this, "Invalid selection", "The PC can only be set to one address.", QMessageBox::Ok, QMessageBox::Cancel);
+//        return; // Try again, user!
+//    } else if (selected.isEmpty()) {
+//        return; // No error message needed
+//    }
+
+    setProgramCounter(debuggingTableWidget->currentRow());
+}
+
+void Widget::nextButtonClicked() {
+    initializeSimulator();
+
+
+}
+
+void Widget::initializeSimulator() {
+    const QString simulatorPath("/home/bryan/Downloads/lc3tools/lc3sim");
+
+    if (debuggerProcess->state() == QProcess::Running) {
+        return;
+    }
+
+    QStringList args;
+    args << QDir::homePath() + "/.lc3ide.obj";
+
+    debuggerProcess->kill();
+    debuggerProcess->start(simulatorPath, args);
+    debuggerProcess->waitForFinished(3 * 1000); // Up to 3 seconds
+    qDebug() << debuggerProcess->readAll();
+    debuggerProcess->kill(); // We're done with him!  Hahaha!
 }
