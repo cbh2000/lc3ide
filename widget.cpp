@@ -10,6 +10,7 @@
 #include <QDir>
 #include <QString>
 #include <QMessageBox>
+#include "simulatorapi.h"
 
 #include <QDebug>
 
@@ -19,6 +20,9 @@ Widget::Widget(QWidget *parent) :
     // Negative margins to remove spacing on edges
     this->setContentsMargins(-11, -11, -11, -11);
     this->setGeometry(0, 0, 480, 640);
+
+    qDebug() << sizeof(SimulatorAPI::Address);
+    exit(0);
 
     // Layout
     layout = new QVBoxLayout(this);

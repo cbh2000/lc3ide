@@ -17,12 +17,15 @@ SOURCES += main.cpp\
     bigbutton.cpp \
     statusbarwidget.cpp \
     syntaxhighlighter.cpp \
-    toolbarwidget.cpp
+    toolbarwidget.cpp \
+    simulatorapi.cpp
 
 HEADERS  += widget.h \
     bigbutton.h \
     statusbarwidget.h \
     syntaxhighlighter.h \
-    toolbarwidget.h
+    toolbarwidget.h \
+    simulatorapi.h \
+    settings.h
 
 FORMS    +=
