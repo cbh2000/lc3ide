@@ -68,6 +68,7 @@ Register idRegister(const char* input) {
 
 enum Preprocessor {
     NotPreprocessor,
+    InvalidPreprocessor,
     BLKW,
     END,
     FILL,
@@ -97,6 +98,9 @@ Preprocessor idPreprocessor(const char* input) {
     } else if (strcasecmp(input, preprocessor_stringz)) {
         return STRINGZ;
     }
+
+    if (input[0] == '.')
+        return InvalidPreprocessor;
 
     return NotPreprocessor;
 }
@@ -131,5 +135,12 @@ LabelStatus isValidLabel(const char* input) {
 
     return ValidLabel;
 }
+
+struct Instruction {
+    Operator op;
+    Register operand1;
+    Register operand2;
+    Register operand3;
+};
 
 #endif // DEF_H

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <malloc.h>
 #include "def.h"
 
 char* nextline(char *out, int max, FILE *f);

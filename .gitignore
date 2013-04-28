@@ -1,0 +1,27 @@
+# Qt project user files:
+*.pro.user
+
+# Qt Meta Object Compiler files:
+moc_*.cpp
+
+# Compiled object files
+*.o
+
+# Makefiles
+Makefile
+
+# Executables
+lc3sim_noqml
+lc3tools/lc3as
+lc3tools/lc3convert
+lc3tools/lc3sim
+lc3tools/lc3sim-tk
+
+# Lumetta's LC-3 generated files
+lc3tools/lc3os.obj
+lc3tools/lc3os.sym
+lc3tools/lex.lc3.c
+lc3tools/lex.lc3convert.c
+lc3tools/test.asm
+lc3tools/test.obj
+lc3tools/test.sym
