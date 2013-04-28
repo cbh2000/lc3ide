@@ -26,7 +26,7 @@ int main(void)
         }
 
         position = entry;
-        while ((*position = strsep(&input, " ")) != NULL) {
+        while ((*position = strsep((const char**)(&input), " ")) != NULL) {
             if (**position != '\0') {
                 if (++position >= &entry[5]) {
                     break;
@@ -51,7 +51,7 @@ int main(void)
             }
             char *input2 = entry[i];
             position2 = entry2;
-            while ((*position2 = strsep(&input2, ",")) != NULL) {
+            while ((*position2 = strsep((const char**)(&input2), ",")) != NULL) {
                 if (**position2 != '\0') {
                     if (++position2 >= &entry2[5]) {
                         break;

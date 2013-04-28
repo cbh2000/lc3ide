@@ -144,7 +144,7 @@ void Widget::saveSource(const QString &fileName) {
 const QString Widget::assemble(const QString &fileName) {
     assemblerProcess = new QProcess(this);
     // FIXME: This would be very inconvenient for somebody else to test drive:
-    QString executable("/home/bryan/Downloads/lc3tools/lc3as");
+    QString executable("./lc3tools/lc3as");
     qDebug() << QFile(executable).exists();
     QStringList arguments(fileName);
     assemblerProcess->start(executable, arguments);
@@ -267,7 +267,7 @@ void Widget::nextButtonClicked() {
 }
 
 void Widget::initializeSimulator() {
-    const QString simulatorPath("/home/bryan/Downloads/lc3tools/lc3sim");
+    const QString simulatorPath("./lc3tools/lc3sim");
 
     if (debuggerProcess->state() == QProcess::Running) {
         return;

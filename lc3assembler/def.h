@@ -40,7 +40,7 @@ const char* register_R6 = "R6";
 const char* register_R7 = "R7";
 
 // This identifier function is VERY picky (e.g., no extra spaces allowed)!
-Register idRegister(const char* input) {
+enum Register idRegister(const char* input) {
     if (strlen(input) < 1)
         return NotRegister;
 
@@ -83,7 +83,7 @@ const char* preprocessor_orig = ".ORIG";
 const char* preprocessor_stringz = ".STRINGZ";
 
 // This identifier function is VERY picky (e.g., no extra spaces allowed)!
-Preprocessor idPreprocessor(const char* input) {
+enum Preprocessor idPreprocessor(const char* input) {
     if (strlen(input) < 1)
         return NotPreprocessor;
 
@@ -112,7 +112,7 @@ enum LabelStatus {
 };
 
 // This function is VERY picky (e.g., no extra spaces allowed)!
-LabelStatus isValidLabel(const char* input) {
+enum LabelStatus isValidLabel(const char* input) {
     int len = strlen(input);
     if (len < 1)
         return EmptyLabel; // Empty string cannot be a label
@@ -127,7 +127,7 @@ LabelStatus isValidLabel(const char* input) {
         return IllegalCharacter; // Illegal first character
 
     // Start from 2nd character (1st already checked)
-    for (char* ch = input + 1; *ch != '\0'; ++ch) {
+    for (const char* ch = input + 1; *ch != '\0'; ++ch) {
         testBase[0] = *ch;
         if (!strcasestr(allowedMiddleCharacters, testBase))
             return IllegalCharacter; // Illegal character found
@@ -137,10 +137,10 @@ LabelStatus isValidLabel(const char* input) {
 }
 
 struct Instruction {
-    Operator op;
-    Register operand1;
-    Register operand2;
-    Register operand3;
+    enum Operator op;
+    enum Register operand1;
+    enum Register operand2;
+    enum Register operand3;
 };
 
 #endif // DEF_H
