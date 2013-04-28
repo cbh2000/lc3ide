@@ -101,9 +101,35 @@ Preprocessor idPreprocessor(const char* input) {
     return NotPreprocessor;
 }
 
+enum LabelStatus {
+    ValidLabel,
+    EmptyLabel,
+    IllegalCharacter
+};
+
 // This function is VERY picky (e.g., no extra spaces allowed)!
-bool isValidLabel(const char* input) {
-    return false;
+LabelStatus isValidLabel(const char* input) {
+    int len = strlen(input);
+    if (len < 1)
+        return EmptyLabel; // Empty string cannot be a label
+
+    char testBase[2]; // Character and null-terminator
+    testBase[1] = '\0';
+    const char *allowedFirstCharacters = "abcdefghijklmnopqrstuvwxyz";
+    const char *allowedMiddleCharacters = "abcdefghijklmnopqrstuvwxyz_0123456789";
+
+    testBase[0] = input[0];
+    if (!strcasestr(allowedFirstCharacters, input[0]))
+        return IllegalCharacter; // Illegal first character
+
+    // Start from 2nd character (1st already checked)
+    for (char* ch = input + 1; *ch != '\0'; ++ch) {
+        testBase[0] = *ch;
+        if (!strcasestr(allowedMiddleCharacters, testBase))
+            return IllegalCharacter; // Illegal character found
+    }
+
+    return ValidLabel;
 }
 
 #endif // DEF_H
