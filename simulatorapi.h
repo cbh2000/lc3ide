@@ -21,10 +21,7 @@ public:
         BreakpointReached
     };
 
-    struct Register {
-        typedef quint8 Type;
-
-    };
+    class Register;
 
     // All LC-3 Addresses may use either this class or Address::Type.
     struct Address {
@@ -55,6 +52,7 @@ private:
     SimulatorState previousState;
     SimulatorState state;
     QSet<Address> p_breakpoints;
+//    Register p_registers[LC3_REGISTER_COUNT];
     QProcess process;
 
     struct Simulator : public QObject {
@@ -74,5 +72,24 @@ private:
         QString executablePath;
     };
 };
+
+//// FIXME: This class should not contain a copy of the value.
+////  It should get it from the simulator.
+//class SumulatorAPI::Register : public QObject
+//{
+//    Q_OBJECT
+
+//public:
+//    typedef LC3_WORD_TYPE ValueType;
+//    Register() {}
+    
+//    ValueType value() { return 0; }
+    
+//public slots:
+//    void setValue(const ValueType& value) { emit valueChanged(this); return; }
+    
+//signals:
+//    void valueChanged(Register *reg);
+//};
 
 #endif // SIMULATORAPI_H
