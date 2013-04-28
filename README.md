@@ -1,6 +1,6 @@
 lc3ide: The cross platform LC-3 Integrated Development Environment.
 -------------
-At the moment, only a Linux and Qt 5 target are supported.  All paths are hard-coded and the code is VERY rough right now.  This program is still in the conceptualization stage.
+At the moment, only a Linux and Qt 5 target are supported.  The code is rough right now.  This program is still in the conceptualization stage.
 
 To compile, you need Qt 5, which can be obtained from http://qt-project.org/downloads.  Once installed, open the "lc3sim_noqml.pro" file from QtCreator.  The full path to QtCreator should be something like "/opt/qt5/bin/qtcreator" if you choose to install it to the default directory.  Then, hopefully, you can compile the project.  The program will not run, however, until you adapt the build directories from within Qt Creator.
 
