@@ -53,11 +53,11 @@ Widget::Widget(QWidget *parent) :
                             this, SLOT(assembleButtonClicked()));
 
     // Toolbar: Set PC
-    setPcButton = new BigButton(this);
-    setPcButton->setText("Set PC");
-    toolBarLayout->addWidget(setPcButton);
-    setPcButton->connect(setPcButton, SIGNAL(clicked()),
-                         this, SLOT(setPcButtonClicked()));
+//    setPcButton = new BigButton(this);
+//    setPcButton->setText("Set PC");
+//    toolBarLayout->addWidget(setPcButton);
+//    setPcButton->connect(setPcButton, SIGNAL(clicked()),
+//                         this, SLOT(setPcButtonClicked()));
 
     // Toolbar: Next
     nextButton = new BigButton(this);
@@ -230,32 +230,32 @@ QString Widget::hexStringForAddress(int address) {
     return hexStringBase.replace(hexStringBase.length() - result.length(), INT_MAX, result);
 }
 
-void Widget::setProgramCounter(int address) {
-    Q_ASSERT(address >= 0);
-    Q_ASSERT(address < MAX_VALUE_IN_BIT_LENGTH);
+//void Widget::setProgramCounter(int address) {
+//    Q_ASSERT(address >= 0);
+//    Q_ASSERT(address < MAX_VALUE_IN_BIT_LENGTH);
 
-    // Restore old header for old PC
-    debuggingTableWidget->setVerticalHeaderItem(programCounterPosition,
-                                                new QTableWidgetItem(hexStringForAddress(programCounterPosition)));
+//    // Restore old header for old PC
+//    debuggingTableWidget->setVerticalHeaderItem(programCounterPosition,
+//                                                new QTableWidgetItem(hexStringForAddress(programCounterPosition)));
 
-    // Put PC label on current address
-    debuggingTableWidget->setVerticalHeaderItem(address, new QTableWidgetItem("--> PC"));
+//    // Put PC label on current address
+//    debuggingTableWidget->setVerticalHeaderItem(address, new QTableWidgetItem("--> PC"));
 
-    programCounterPosition = address;
-}
+//    programCounterPosition = address;
+//}
 
-void Widget::setPcButtonClicked() {
-//    QList<QTableWidgetItem *> selected = debuggingTableWidget->selectedItems();
-//    qDebug() << selected.size() << debuggingTableWidget->currentRow();
-//    if (selected.size() > 1) {
-//        QMessageBox::warning(this, "Invalid selection", "The PC can only be set to one address.", QMessageBox::Ok, QMessageBox::Cancel);
-//        return; // Try again, user!
-//    } else if (selected.isEmpty()) {
-//        return; // No error message needed
-//    }
-
-    setProgramCounter(debuggingTableWidget->currentRow());
-}
+//void Widget::setPcButtonClicked() {
+////    QList<QTableWidgetItem *> selected = debuggingTableWidget->selectedItems();
+////    qDebug() << selected.size() << debuggingTableWidget->currentRow();
+////    if (selected.size() > 1) {
+////        QMessageBox::warning(this, "Invalid selection", "The PC can only be set to one address.", QMessageBox::Ok, QMessageBox::Cancel);
+////        return; // Try again, user!
+////    } else if (selected.isEmpty()) {
+////        return; // No error message needed
+////    }
+//
+//    setProgramCounter(debuggingTableWidget->currentRow());
+//}
 
 void Widget::nextButtonClicked() {
     initializeSimulator();
