@@ -1,10 +1,13 @@
 #ifndef DEF_H
 #define DEF_H
 
-#define LC3_WORD_SIZE (16) // bits
+#include <string.h>
+
+#define LC3_WORD_BITS (16) // bits
 #define LC3_WORD_TYPE unsigned short int // 16-bit max
 
-#define OPERATOR_TYPE unsigned char // 8-bit max
+#define LC3_OPERATOR_BITS (4)
+#define LC3_OPERATOR_TYPE unsigned char // 8-bit max
 
 enum Operator {
     AND = 0x7 // 0101
@@ -12,7 +15,11 @@ enum Operator {
 
 const char* op_and = "AND";
 
+#define LC3_REGISTER_BITS (3)
+#define LC3_REGISTER_TYPE unsigned char // 8-bit max
+
 enum Register {
+    NotRegister = -0x1, // Negative
     R0 = 0x0, // 000
     R1 = 0x1, // 001
     R2 = 0x2, // 010
@@ -23,13 +30,80 @@ enum Register {
     R7 = 0x7  // 111
 };
 
-const char* reg_R0 = "R0";
-const char* reg_R1 = "R1";
-const char* reg_R2 = "R2";
-const char* reg_R3 = "R3";
-const char* reg_R4 = "R4";
-const char* reg_R5 = "R5";
-const char* reg_R6 = "R6";
-const char* reg_R7 = "R7";
+const char* register_R0 = "R0";
+const char* register_R1 = "R1";
+const char* register_R2 = "R2";
+const char* register_R3 = "R3";
+const char* register_R4 = "R4";
+const char* register_R5 = "R5";
+const char* register_R6 = "R6";
+const char* register_R7 = "R7";
+
+// This identifier function is VERY picky (e.g., no extra spaces allowed)!
+Register idRegister(const char* input) {
+    if (strlen(input) < 1)
+        return NotRegister;
+
+    // To quote Lumetta, "Not fast, but who cares?"  ;-)
+    if (strcasecmp(input, register_R0)) {
+        return R0;
+    } else if (strcasecmp(input, register_R1)) {
+        return R1;
+    } else if (strcasecmp(input, register_R2)) {
+        return R2;
+    } else if (strcasecmp(input, register_R3)) {
+        return R3;
+    } else if (strcasecmp(input, register_R4)) {
+        return R4;
+    } else if (strcasecmp(input, register_R5)) {
+        return R5;
+    } else if (strcasecmp(input, register_R6)) {
+        return R6;
+    } else if (strcasecmp(input, register_R7)) {
+        return R7;
+    }
+
+    return NotRegister;
+}
+
+enum Preprocessor {
+    NotPreprocessor,
+    BLKW,
+    END,
+    FILL,
+    ORIG,
+    STRINGZ
+};
+
+const char* preprocessor_blkw = ".BLKW";
+const char* preprocessor_end = ".END";
+const char* preprocessor_fill = ".FILL";
+const char* preprocessor_orig = ".ORIG";
+const char* preprocessor_stringz = ".STRINGZ";
+
+// This identifier function is VERY picky (e.g., no extra spaces allowed)!
+Preprocessor idPreprocessor(const char* input) {
+    if (strlen(input) < 1)
+        return NotPreprocessor;
+
+    if (strcasecmp(input, preprocessor_blkw)) {
+        return BLKW;
+    } else if (strcasecmp(input, preprocessor_end)) {
+        return END;
+    } else if (strcasecmp(input, preprocessor_fill)) {
+        return FILL;
+    } else if (strcasecmp(input, preprocessor_orig)) {
+        return ORIG;
+    } else if (strcasecmp(input, preprocessor_stringz)) {
+        return STRINGZ;
+    }
+
+    return NotPreprocessor;
+}
+
+// This function is VERY picky (e.g., no extra spaces allowed)!
+bool isValidLabel(const char* input) {
+    return false;
+}
 
 #endif // DEF_H
