@@ -55,7 +55,7 @@ case `$uname -s` in
 		echo "Configuring for Cygwin..."
 		;;
 	Linux*) echo "Configuring for Linux..."
-		OS_SIM_LIBS="-lcurses"
+		OS_SIM_LIBS="-lncurses"
 		;;
 	SunOS*)  echo "Configuring for Solaris..."
 		OS_SIM_LIBS="-lcurses -lsocket -lnsl"
