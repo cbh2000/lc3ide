@@ -21,9 +21,6 @@ Widget::Widget(QWidget *parent) :
     this->setContentsMargins(-11, -11, -11, -11);
     this->setGeometry(0, 0, 480, 640);
 
-    qDebug() << sizeof(SimulatorAPI::Address);
-    exit(0);
-
     // Layout
     layout = new QVBoxLayout(this);
     layout->setSpacing(0);
