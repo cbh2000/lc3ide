@@ -35,7 +35,7 @@ public:
 protected slots:
     void switchModeButtonClicked();
     void assembleButtonClicked();
-    void setPcButtonClicked();
+//    void setPcButtonClicked();
     void nextButtonClicked();
 
 private:
@@ -45,7 +45,7 @@ private:
     BigButton *openNewProjectButton;
     BigButton *switchToEditModeButton;
     BigButton *assembleButton;
-    BigButton *setPcButton;
+//    BigButton *setPcButton;
     BigButton *nextButton;
     QTextEdit *sourceEditor;
     SyntaxHighlighter *sourceEditorSyntaxHighlighter;
@@ -58,7 +58,7 @@ private:
     void initializeSimulator();
 
     QString hexStringForAddress(int address);
-    void setProgramCounter(int toAddress);
+//    void setProgramCounter(int toAddress);
     void saveSource(const QString &fileName);
     const QString assemble(const QString &fileName);
     void populateLabels(const QString &fileName);
