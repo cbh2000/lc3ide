@@ -2,16 +2,8 @@
 #include <string.h>
 #include "def.h"
 
-char* nextline(char *out, int max, FILE *f) {
-    char *result = fgets(out, max, f);
-    int len = strlen(out);
-    if (len > 0) {
-        if (out[len - 1] == '\n') {
-            out[len - 1] = '\0'; // No trailing newline
-        }
-    }
-    return result;
-}
+char* nextline(char *out, int max, FILE *f);
+
 
 int main(void)
 {
@@ -85,3 +77,13 @@ int main(void)
     return 0;
 }
 
+char *nextline(char *out, int max, FILE *f) {
+    char *result = fgets(out, max, f);
+    int len = strlen(out);
+    if (len > 0) {
+        if (out[len - 1] == '\n') {
+            out[len - 1] = '\0'; // No trailing newline
+        }
+    }
+    return result;
+}
