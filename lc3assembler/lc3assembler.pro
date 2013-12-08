@@ -5,9 +5,7 @@ CONFIG -= qt
 
 SOURCES += main.c
 
-HEADERS += \
-    def.h
+HEADERS +=
 
-OTHER_FILES += \
-    input.asm
+OTHER_FILES +=
 
