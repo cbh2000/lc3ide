@@ -407,6 +407,7 @@
 				C67A29071A2BCE7400CA1451 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C67A29081A2BCE7400CA1451 /* Build configuration list for PBXNativeTarget "LC3Tests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +416,7 @@
 				C67A290A1A2BCE7400CA1451 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
