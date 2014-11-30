@@ -1,6 +1,9 @@
 # Qt project user files:
 *.pro.user
 
+*.xcuserstate
+*xcuserdata*
+
 # Qt Meta Object Compiler files:
 moc_*.cpp
 
@@ -25,3 +28,4 @@ lc3tools/lex.lc3convert.c
 lc3tools/test.asm
 lc3tools/test.obj
 lc3tools/test.sym
+
