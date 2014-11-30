@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Master-->
+        <scene sceneID="pY4-Hu-kfo">
+            <objects>
+                <navigationController title="Master" navigationBarHidden="YES" id="RMx-3f-FxP" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="YYb-x2-O4G" kind="relationship" relationship="rootViewController" id="U4L-EM-DN4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8fS-aE-onr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-38" y="-630"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="OdG-Kl-dEe">
+            <objects>
+                <viewController id="YYb-x2-O4G" customClass="MainViewController" customModule="LC3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CFS-g9-Hpp"/>
+                        <viewControllerLayoutGuide type="bottom" id="U0h-ri-UD2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tWV-aE-LMX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RlE-cB-OYP">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="82"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="2wZ-Eb-e1M">
+                                        <rect key="frame" x="195" y="20" width="54" height="54"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="54" id="9Yz-MC-WmV"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <string key="title">Step
+  In</string>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6I-XX-U8T">
+                                        <rect key="frame" x="8" y="20" width="54" height="54"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="54" id="OM2-Dp-rJB"/>
+                                        </constraints>
+                                        <state key="normal" title="Run">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="runClicked:" destination="YYb-x2-O4G" eventType="touchUpInside" id="DNi-L4-xtQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOq-Ic-TYp">
+                                        <rect key="frame" x="70" y="20" width="54" height="54"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="54" id="nKT-oK-sAG"/>
+                                        </constraints>
+                                        <state key="normal" title="Debug">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="9Ho-e0-I5t">
+                                        <rect key="frame" x="132" y="20" width="55" height="54"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="E8y-rb-79V"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <string key="title">Step
+Over</string>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ph5-tV-azc">
+                                        <rect key="frame" x="257" y="20" width="54" height="54"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="54" id="spW-DF-bm8"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <string key="title">Step
+   Out</string>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="9Ho-e0-I5t" firstAttribute="leading" secondItem="SOq-Ic-TYp" secondAttribute="trailing" constant="8" symbolic="YES" id="14X-mR-8gv"/>
+                                    <constraint firstItem="2wZ-Eb-e1M" firstAttribute="leading" secondItem="9Ho-e0-I5t" secondAttribute="trailing" constant="8" symbolic="YES" id="1ns-Tc-cJh"/>
+                                    <constraint firstItem="2wZ-Eb-e1M" firstAttribute="baseline" secondItem="9Ho-e0-I5t" secondAttribute="baseline" id="8JU-nx-LTR"/>
+                                    <constraint firstItem="ph5-tV-azc" firstAttribute="leading" secondItem="2wZ-Eb-e1M" secondAttribute="trailing" constant="8" symbolic="YES" id="C0y-IP-geo"/>
+                                    <constraint firstItem="T6I-XX-U8T" firstAttribute="leading" secondItem="RlE-cB-OYP" secondAttribute="leadingMargin" id="EC5-gs-Osh"/>
+                                    <constraint firstItem="SOq-Ic-TYp" firstAttribute="top" secondItem="9Ho-e0-I5t" secondAttribute="top" id="KRy-rL-Wnm"/>
+                                    <constraint firstItem="9Ho-e0-I5t" firstAttribute="firstBaseline" secondItem="2wZ-Eb-e1M" secondAttribute="firstBaseline" id="Llm-Ve-lcC"/>
+                                    <constraint firstItem="SOq-Ic-TYp" firstAttribute="bottom" secondItem="9Ho-e0-I5t" secondAttribute="bottom" id="Phl-Aa-9kK"/>
+                                    <constraint firstItem="ph5-tV-azc" firstAttribute="top" secondItem="2wZ-Eb-e1M" secondAttribute="top" id="XBW-QD-jmx"/>
+                                    <constraint firstItem="ph5-tV-azc" firstAttribute="baseline" secondItem="2wZ-Eb-e1M" secondAttribute="baseline" id="XyP-Vd-ThO"/>
+                                    <constraint firstAttribute="height" constant="82" id="ava-5F-onV"/>
+                                    <constraint firstItem="SOq-Ic-TYp" firstAttribute="leading" secondItem="T6I-XX-U8T" secondAttribute="trailing" constant="8" symbolic="YES" id="ay8-nh-OqM"/>
+                                    <constraint firstItem="T6I-XX-U8T" firstAttribute="bottom" secondItem="RlE-cB-OYP" secondAttribute="bottomMargin" id="h9j-rK-Wpr"/>
+                                    <constraint firstItem="T6I-XX-U8T" firstAttribute="top" secondItem="SOq-Ic-TYp" secondAttribute="top" id="kaw-Wt-5UT"/>
+                                    <constraint firstItem="2wZ-Eb-e1M" firstAttribute="firstBaseline" secondItem="ph5-tV-azc" secondAttribute="firstBaseline" id="mg1-3A-dRj"/>
+                                    <constraint firstItem="SOq-Ic-TYp" firstAttribute="baseline" secondItem="T6I-XX-U8T" secondAttribute="firstBaseline" id="oab-hY-lFh"/>
+                                    <constraint firstItem="T6I-XX-U8T" firstAttribute="top" secondItem="RlE-cB-OYP" secondAttribute="top" constant="20" id="oaj-5s-VEs"/>
+                                    <constraint firstItem="2wZ-Eb-e1M" firstAttribute="top" secondItem="9Ho-e0-I5t" secondAttribute="top" id="rFW-fs-eek"/>
+                                    <constraint firstItem="T6I-XX-U8T" firstAttribute="baseline" secondItem="SOq-Ic-TYp" secondAttribute="firstBaseline" id="u4E-ua-nEQ"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tvg-6b-4Ld">
+                                <rect key="frame" x="33" y="82" width="551" height="498"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWM-TN-Lvs">
+                                <rect key="frame" x="0.0" y="82" width="25" height="518"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="kc0-4w-8f1"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RWM-TN-Lvs" firstAttribute="top" secondItem="RlE-cB-OYP" secondAttribute="bottom" id="F01-hZ-KUX"/>
+                            <constraint firstItem="RlE-cB-OYP" firstAttribute="top" secondItem="tWV-aE-LMX" secondAttribute="topMargin" id="GBH-LC-mPv"/>
+                            <constraint firstItem="U0h-ri-UD2" firstAttribute="top" secondItem="RWM-TN-Lvs" secondAttribute="bottom" id="HFM-Gb-mrn"/>
+                            <constraint firstAttribute="bottom" secondItem="Tvg-6b-4Ld" secondAttribute="bottom" constant="20" symbolic="YES" id="JFq-Zx-dd0"/>
+                            <constraint firstAttribute="trailing" secondItem="RlE-cB-OYP" secondAttribute="trailing" id="Rej-kN-9DO"/>
+                            <constraint firstItem="Tvg-6b-4Ld" firstAttribute="top" secondItem="RWM-TN-Lvs" secondAttribute="top" id="ee6-Se-mhA"/>
+                            <constraint firstItem="Tvg-6b-4Ld" firstAttribute="trailing" secondItem="tWV-aE-LMX" secondAttribute="trailingMargin" id="ic5-Ua-ln7"/>
+                            <constraint firstItem="Tvg-6b-4Ld" firstAttribute="leading" secondItem="RWM-TN-Lvs" secondAttribute="trailing" constant="8" symbolic="YES" id="o1U-V7-edj"/>
+                            <constraint firstItem="RWM-TN-Lvs" firstAttribute="leading" secondItem="tWV-aE-LMX" secondAttribute="leadingMargin" constant="-16" id="yP2-0K-gWO"/>
+                            <constraint firstItem="RlE-cB-OYP" firstAttribute="leading" secondItem="RWM-TN-Lvs" secondAttribute="leading" id="zZN-op-v3U"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="eQU-Wu-CvA"/>
+                    <connections>
+                        <outlet property="consoleView" destination="RWM-TN-Lvs" id="VIG-iD-96K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Hs-0B-lBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="739" y="-631"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="Nki-YV-4Qg">
+            <objects>
+                <splitViewController id="H1p-Uh-vWS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <connections>
+                        <segue destination="RMx-3f-FxP" kind="relationship" relationship="masterViewController" id="BlO-5A-QYV"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cZU-Oi-B1e" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-856" y="-330"/>
+        </scene>
+    </scenes>
+</document>
